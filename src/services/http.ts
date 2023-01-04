@@ -1,17 +1,22 @@
-import { Logger } from './logger';
+import { Logger, ILogger } from './logger';
 
 import type { ApiConfig } from '../types';
 export class HTTP {
-  logger: Logger;
-  apiConfig: ApiConfig;
+  logger: ILogger;
+  config: ApiConfig;
 
-  constructor(apiConfig: ApiConfig) {
-    this.apiConfig = apiConfig;
-    this.logger = new Logger();
+  static $inject = ['config', 'logger'];
+
+  constructor(config: ApiConfig, logger: ILogger) {
+    this.config = config;
+    this.logger = logger;
+    console.log(this)
   }
 
   async get(url: string) {
-    const response = await fetch(`${this.apiConfig.path}${url}`);
+
+    console.log()
+    const response = await fetch(`${this.config.path}${url}`);
 
     if (response.ok) {
       const responseData = await response.json();
@@ -22,4 +27,10 @@ export class HTTP {
       this.logger.error(`Status: ${response.status}. Status Text: ${response.statusText}`);
     }
   }
+}
+
+export interface IHTTP {
+  logger: ILogger;
+  apiConfig: ApiConfig;
+  get: (url: string) => JSON | void;
 }

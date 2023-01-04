@@ -1,10 +1,11 @@
 import { Users } from './services/users';
 import { Logger } from './services/logger';
+import { createIoCContainer } from './ioc';
 
 import type { User, ApiConfig } from './types';
 
 const renderUsers = async (config: ApiConfig) => {
-  const usersService = new Users(config);
+  const usersService = createIoCContainer().resolve('users');
   const users = await usersService.getUsers();
 
   const listNode = document.getElementById('users-list');
