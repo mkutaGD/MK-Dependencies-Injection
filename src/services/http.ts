@@ -10,13 +10,11 @@ export class HTTP {
   constructor(config: ApiConfig, logger: ILogger) {
     this.config = config;
     this.logger = logger;
-    console.log(this)
   }
 
   async get(url: string) {
 
-    console.log()
-    const response = await fetch(`${this.config.path}${url}`);
+    const response = await fetch(`${this.config.common.api.path}${url}`);
 
     if (response.ok) {
       const responseData = await response.json();
