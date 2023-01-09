@@ -21,6 +21,11 @@ const renderUsers = async () => {
 };
 
 const app = () => {
+  const config = (window as any).__CONFIG__;
+  console.log(config)
+  ioc.register('config', config)
+
+  delete (window as any).__CONFIG__;
   renderUsers();
 };
 

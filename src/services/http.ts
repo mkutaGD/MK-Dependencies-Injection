@@ -14,7 +14,7 @@ export class HTTP {
 
   async get(url: string) {
 
-    const response = await fetch(`${this.config.common.api.path}${url}`);
+    const response = await fetch(`${this.config.api.path}${url}`);
 
     if (response.ok) {
       const responseData = await response.json();

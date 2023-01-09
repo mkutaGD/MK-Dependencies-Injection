@@ -4,12 +4,12 @@ export interface User {
 }
 
 export interface ApiConfig {
-  common: {
-    api: {
-      path: string;
-      resources: { [key: string]: string };
-    }
+
+  api: {
+    path: string;
+    resources: { [key: string]: string };
   }
+  
   server: {
     port: number
   }

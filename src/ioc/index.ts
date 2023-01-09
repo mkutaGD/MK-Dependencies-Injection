@@ -4,9 +4,6 @@ import { Logger } from '../services/logger';
 import { HTTP } from '../services/http';
 import { Users } from '../services/users';
 
-const config = require('../../config.json');
-console.log(config)
-
 export const createIoCContainer = () =>  {
   const ioc = new IoCContainer();
   // you can register some resources right now below...
@@ -15,8 +12,6 @@ export const createIoCContainer = () =>  {
   ioc.registerClass('http', HTTP);
 
   ioc.registerClass('users', Users)
-
-  ioc.register('config', config);
 
   return ioc;
 };

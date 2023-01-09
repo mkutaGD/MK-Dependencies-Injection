@@ -13,6 +13,6 @@ export class Users {
   }
 
   getUsers() {
-    return this.http.get(this.config.common.api.resources.users) as unknown as User[];
+    return this.http.get(this.config.api.resources.users) as unknown as User[];
   }
 }
