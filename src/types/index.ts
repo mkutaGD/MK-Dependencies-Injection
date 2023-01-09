@@ -4,6 +4,13 @@ export interface User {
 }
 
 export interface ApiConfig {
-  path: string;
-  resources: { [key: string]: string };
+
+  api: {
+    path: string;
+    resources: { [key: string]: string };
+  }
+  
+  server: {
+    port: number
+  }
 }

@@ -11,3 +11,8 @@ export class Logger {
     console.error('[ERROR]', `[${date}]`, message);
   }
 }
+
+export interface ILogger {
+  info: (message: string) => void;
+  error: (message: string) => void;
+}
